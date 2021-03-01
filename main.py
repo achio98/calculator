@@ -18,7 +18,7 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED:  # if user closes window or clicks cancel
         break
-    if event.isdigit():
+    if event.isdigit() or event is '.':
         if len(expression) > 1:
             if expression[1].isdigit():
                 del expression[0]
@@ -27,7 +27,8 @@ while True:
         window['-OUTPUT-'].update(value)
     elif event == 'C':
         if len(expression) == 2:
-            expression = expression[:-1]
+            event = ''
+            expression.pop()
         elif len(expression) > 0:
             expression.pop()
         window['-OUTPUT-'].update('')
