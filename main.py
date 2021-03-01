@@ -45,7 +45,7 @@ while True:
             del expression[1]
         if '' in expression:
             expression.remove('')
-    print(expression)
+
     if len(expression) > 3:
         score = eval(f"{expression[0]}{expression[1]}{expression[2]}")
         window['-OUTPUT-'].update(score)
@@ -53,6 +53,5 @@ while True:
             expression = [score, event]
         else:
             expression = [score]
-        print(expression)
 
 window.close()
